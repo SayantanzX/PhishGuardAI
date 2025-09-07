@@ -1,5 +1,10 @@
 # Phishing Website Detection Using Machine Learning
 
+## Screenshot-1
+![image description](images/1.png)
+
+## Screenshot-2
+![image description](images/2.png)
 A comprehensive machine learning-based system for detecting phishing websites by analyzing various URL and website features.
 
 ## 🚀 Features
