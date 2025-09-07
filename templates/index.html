@@ -4,89 +4,293 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This website is develop for identify the safety of url.">
-    <meta name="keywords" content="phishing url,phishing,cyber security,machine learning,classifier,python">
-    <meta name="author" content="VAIBHAV BICHAVE">
+    <meta name="description" content="Advanced phishing website detection using machine learning. Protect yourself from malicious websites with our AI-powered URL analyzer.">
+    <meta name="keywords" content="phishing detection, cybersecurity, machine learning, URL analyzer, web security, AI security">
+    <meta name="author" content="Phishing Detection Team">
 
-    <!-- BootStrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        
-    <link href="static/styles.css" rel="stylesheet">
-    <title>URL detection</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <link href="static/styles.css" rel="stylesheet">
+    <title>PhishGuard - AI-Powered Phishing Detection</title>
 </head>
 
 <body>
-
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-          <h1>PHISHING WEB SITES DETECTION</h1>      
-          <p>The Internet has become an indispensable part of our life, However, It also has provided opportunities to anonymously perform malicious activities like Phishing. Phishers try to deceive their victims by social engineering or creating mockup websites to steal information such as account ID, username, password from individuals and organizations. Although many methods have been proposed to detect phishing websites, Phishers have evolved their methods to escape from these detection methods. One of the most successful methods for detecting these malicious activities is Machine Learning. This is because most Phishing attacks have some common characteristics which can be identified by machine learning methods.</p>
-        </div></br></br></br>
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-shield-alt me-2"></i>PhishGuard
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#detector">Detector</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    
-<div class=" container">
-    <div class="row">
-        <div class="form col-md" id="form1">
-            <h1>PHISHING WEB SITES DETECTION FROM URL</h1>
-    
-            <br>
-            <form action="/" method ="post">
-                <input type="text" class="form__input" name ='url' id="url" placeholder="Enter URL" required="" />
-                <label for="url" class="form__label">URL</label>
-                <button class="button" role="button" >Check here</button>
-            </form>
-           
-    </div>
-    
-    <div class="col-md" id="form2">
-        
-        <br>
-        <h6 class = "right "><a href= {{ url }} target="_blank">{{ url }}</a></h6>
-           
-        <br>
-        <h3 id="prediction"></h3>
-        <button class="button2" id="button2" role="button" onclick="window.open('{{url}}')" target="_blank" >Still want to Continue</button>
-        <button class="button1" id="button1" role="button"  onclick="window.open('{{url}}')" target="_blank">Continue</button>
-    </div> 
-</div>
-<br>
-</div>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            Protect Yourself from 
+                            <span class="text-gradient">Phishing Attacks</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Advanced machine learning technology analyzes URLs in real-time to detect malicious websites and protect your personal information.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">95%+</div>
+                                <div class="stat-label">Accuracy</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">30+</div>
+                                <div class="stat-label">Features</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">Real-time</div>
+                                <div class="stat-label">Analysis</div>
+                            </div>
+                        </div>
+                        <a href="#detector" class="btn btn-primary btn-lg">
+                            <i class="fas fa-search me-2"></i>Check URL Now
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <div class="security-illustration">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="protection-ring"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Why Choose PhishGuard?</h2>
+                <p>Our advanced detection system uses cutting-edge technology to keep you safe</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI-Powered Detection</h3>
+                        <p>Machine learning algorithms analyze 30+ features to identify phishing patterns with high accuracy.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Real-Time Analysis</h3>
+                        <p>Get instant results with our lightning-fast URL analysis system.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Comprehensive Security</h3>
+                        <p>Detects various phishing techniques including domain spoofing, SSL manipulation, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>How It Works</h2>
+                <p>Simple three-step process to protect yourself from phishing</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Enter URL</h3>
+                        <p>Simply paste the suspicious URL you want to check into our secure form.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>AI Analysis</h3>
+                        <p>Our machine learning model analyzes 30+ security features in real-time.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Get Results</h3>
+                        <p>Receive instant feedback with detailed security analysis and recommendations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- URL Detector Section -->
+    <section id="detector" class="detector-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>URL Security Detector</h2>
+                <p>Check any URL for potential security threats</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="detector-card">
+                        <form action="/" method="post" class="detector-form">
+                            <div class="input-group mb-4">
+                                <span class="input-group-text">
+                                    <i class="fas fa-link"></i>
+                                </span>
+                                <input type="url" 
+                                       class="form-control form-control-lg" 
+                                       name="url" 
+                                       id="url" 
+                                       placeholder="Enter URL to check (e.g., https://example.com)" 
+                                       required>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-search me-2"></i>Analyze URL
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Results Section -->
+                        {% if url %}
+                        <div class="results-section mt-4">
+                            <div class="url-display">
+                                <h6><strong>Analyzed URL:</strong></h6>
+                                <a href="{{ url }}" target="_blank" class="url-link">{{ url }}</a>
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        {% if error %}
+                        <div class="alert alert-danger mt-4" role="alert">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            {{ error }}
+                        </div>
+                        {% else %}
+                        <div class="prediction-result mt-4">
+                            <h3 id="prediction" class="prediction-text"></h3>
+                            <div class="action-buttons mt-3">
+                                <button class="btn btn-success btn-lg me-3" id="button1" style="display: none;">
+                                    <i class="fas fa-check me-2"></i>Safe to Continue
+                                </button>
+                                <button class="btn btn-danger btn-lg" id="button2" style="display: none;">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>Proceed with Caution
+                                </button>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-shield-alt me-2"></i>PhishGuard</h5>
+                    <p>Protecting users from phishing attacks with advanced AI technology.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2025 PhishGuard. Built By Sayantan Banerjee  </p>
+                    <br>
+                    <p>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
+        let x = '{{xx}}';
+        let num = x*100;
+        if (0<=x && x<0.50){
+            num = 100-num;
+        }
+        let txtx = num.toString();
         
-            let x = '{{xx}}';
-            let num = x*100;
-            if (0<=x && x<0.50){
-                num = 100-num;
-            }
-            let txtx = num.toString();
-            if(x<=1 && x>=0.50){
-                var label = "Website is "+txtx +"% safe to use...";
-                document.getElementById("prediction").innerHTML = label;
-                document.getElementById("button1").style.display="block";
-            }
-            else if (0<=x && x<0.50){
-                var label = "Website is "+txtx +"% unsafe to use..."
-                document.getElementById("prediction").innerHTML = label ;
-                document.getElementById("button2").style.display="block";
-            }
-        
-    </script>
-    
-</body>
+        if(x<=1 && x>=0.50){
+            var label = "✅ This website is " + txtx + "% safe to use";
+            document.getElementById("prediction").innerHTML = label;
+            document.getElementById("button1").style.display="inline-block";
+        }
+        else if (0<=x && x<0.50){
+            var label = "⚠️ This website is " + txtx + "% unsafe - proceed with caution";
+            document.getElementById("prediction").innerHTML = label;
+            document.getElementById("button2").style.display="inline-block";
+        }
 
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+    </script>
+</body>
 </html>
 
